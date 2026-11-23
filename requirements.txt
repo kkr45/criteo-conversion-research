@@ -1,10 +1,16 @@
-# Python 3.9.6
-
-numpy==2.0.2
-pandas==2.3.3
-scikit-learn==1.6.1
-matplotlib==3.9.4
+# Python 3.12.3 — the exact versions that produced the KA1 Milestone 2
+# results (500k seed-530 sample, 2026-11-22/23). Pinning these, not the
+# Milestone 1 draft versions, so `pip install -r requirements.txt`
+# reproduces the reported numbers.
+numpy==2.5.4
+pandas==3.1.1
+scikit-learn==1.9.1
+scipy==1.18.1
+matplotlib==3.11.2
 seaborn==0.13.2
+python-docx==1.2.0
+nbformat==5.11.1
+ipykernel==7.4.0
+nbconvert==7.17.2
 notebook>=7,<8
-ipykernel>=6,<7
 pytest>=8,<10
