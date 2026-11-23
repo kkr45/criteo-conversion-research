@@ -1,0 +1,263 @@
+{
+  "splits": {
+    "train": {
+      "rows": 300000,
+      "first_utc": "2020-08-03 07:25:18+00:00",
+      "last_utc": "2020-09-29 22:50:32+00:00",
+      "prevalence": 0.11360666666666666
+    },
+    "validation": {
+      "rows": 100000,
+      "first_utc": "2020-09-29 22:50:47+00:00",
+      "last_utc": "2020-10-16 19:04:50+00:00",
+      "prevalence": 0.10274
+    },
+    "test": {
+      "rows": 100000,
+      "first_utc": "2020-10-16 19:04:54+00:00",
+      "last_utc": "2020-11-02 07:24:28+00:00",
+      "prevalence": 0.09908
+    }
+  },
+  "calibration_test_D": {
+    "D_logistic": {
+      "bins": [
+        {
+          "bin": 0,
+          "n": 56985,
+          "mean_pred": 0.0548,
+          "frac_pos": 0.0515
+        },
+        {
+          "bin": 1,
+          "n": 34043,
+          "mean_pred": 0.1543,
+          "frac_pos": 0.1469
+        },
+        {
+          "bin": 2,
+          "n": 6502,
+          "mean_pred": 0.2409,
+          "frac_pos": 0.2086
+        },
+        {
+          "bin": 3,
+          "n": 1903,
+          "mean_pred": 0.3382,
+          "frac_pos": 0.2507
+        },
+        {
+          "bin": 4,
+          "n": 453,
+          "mean_pred": 0.4353,
+          "frac_pos": 0.2583
+        },
+        {
+          "bin": 5,
+          "n": 81,
+          "mean_pred": 0.5405,
+          "frac_pos": 0.1852
+        },
+        {
+          "bin": 6,
+          "n": 33,
+          "mean_pred": 0.6259,
+          "frac_pos": 0.1515
+        },
+        {
+          "bin": 7,
+          "n": 0,
+          "mean_pred": null,
+          "frac_pos": null
+        },
+        {
+          "bin": 8,
+          "n": 0,
+          "mean_pred": null,
+          "frac_pos": null
+        },
+        {
+          "bin": 9,
+          "n": 0,
+          "mean_pred": null,
+          "frac_pos": null
+        }
+      ],
+      "ECE": 0.0094,
+      "slope": 0.878,
+      "intercept": -0.335
+    },
+    "D_gbm": {
+      "bins": [
+        {
+          "bin": 0,
+          "n": 54055,
+          "mean_pred": 0.0563,
+          "frac_pos": 0.0491
+        },
+        {
+          "bin": 1,
+          "n": 36926,
+          "mean_pred": 0.1539,
+          "frac_pos": 0.1413
+        },
+        {
+          "bin": 2,
+          "n": 7660,
+          "mean_pred": 0.2413,
+          "frac_pos": 0.2187
+        },
+        {
+          "bin": 3,
+          "n": 1283,
+          "mean_pred": 0.3316,
+          "frac_pos": 0.2619
+        },
+        {
+          "bin": 4,
+          "n": 73,
+          "mean_pred": 0.4363,
+          "frac_pos": 0.3151
+        },
+        {
+          "bin": 5,
+          "n": 3,
+          "mean_pred": 0.5054,
+          "frac_pos": 0.6667
+        },
+        {
+          "bin": 6,
+          "n": 0,
+          "mean_pred": null,
+          "frac_pos": null
+        },
+        {
+          "bin": 7,
+          "n": 0,
+          "mean_pred": null,
+          "frac_pos": null
+        },
+        {
+          "bin": 8,
+          "n": 0,
+          "mean_pred": null,
+          "frac_pos": null
+        },
+        {
+          "bin": 9,
+          "n": 0,
+          "mean_pred": null,
+          "frac_pos": null
+        }
+      ],
+      "ECE": 0.0112,
+      "slope": 1.018,
+      "intercept": -0.092
+    }
+  },
+  "rolling_windows_D_logistic": {
+    "W1_train_first40_test_last20": {
+      "train_rows": 200000,
+      "test_rows": 100000,
+      "train_range": "2020-08-03 07:25:18+00:00 .. 2020-09-12 00:58:34+00:00",
+      "test_range": "2020-10-16 19:04:54+00:00 .. 2020-11-02 07:24:28+00:00",
+      "AP": 0.17224894541084246,
+      "ROC_AUC": 0.6920264959135389,
+      "log_loss": 0.303450241195765,
+      "Brier": 0.08663487812000327,
+      "prevalence": 0.09908,
+      "rows": 100000
+    },
+    "W2_train_20to60_test_last20": {
+      "train_rows": 200000,
+      "test_rows": 100000,
+      "train_range": "2020-08-23 16:20:33+00:00 .. 2020-09-29 22:50:32+00:00",
+      "test_range": "2020-10-16 19:04:54+00:00 .. 2020-11-02 07:24:28+00:00",
+      "AP": 0.18148819896669607,
+      "ROC_AUC": 0.7015276054508566,
+      "log_loss": 0.3007372760543062,
+      "Brier": 0.08584893907130943,
+      "prevalence": 0.09908,
+      "rows": 100000
+    }
+  },
+  "label_gap_sweep_D_logistic": {
+    "0": {
+      "feasible": true,
+      "train_rows": 300000,
+      "validation_rows": 100000,
+      "test_rows": 100000,
+      "excluded_rows": 0,
+      "validation": {
+        "AP": 0.18856590467316847,
+        "ROC_AUC": 0.6962093073259683,
+        "log_loss": 0.30854943498590115,
+        "Brier": 0.0884083118994722,
+        "prevalence": 0.10274,
+        "rows": 100000
+      },
+      "test": {
+        "AP": 0.180979570822708,
+        "ROC_AUC": 0.7008838902371023,
+        "log_loss": 0.300790148090009,
+        "Brier": 0.08586105310047461,
+        "prevalence": 0.09908,
+        "rows": 100000
+      }
+    },
+    "7": {
+      "feasible": true,
+      "train_rows": 259657,
+      "validation_rows": 56915,
+      "test_rows": 100000,
+      "excluded_rows": 83428,
+      "validation": {
+        "AP": 0.19107466357474198,
+        "ROC_AUC": 0.6968496012957465,
+        "log_loss": 0.3084868757957081,
+        "Brier": 0.0883246726662958,
+        "prevalence": 0.10283756478959852,
+        "rows": 56915
+      },
+      "test": {
+        "AP": 0.17921834345022386,
+        "ROC_AUC": 0.6985552373538368,
+        "log_loss": 0.3012978444959917,
+        "Brier": 0.08595361790700186,
+        "prevalence": 0.09908,
+        "rows": 100000
+      }
+    },
+    "14": {
+      "feasible": true,
+      "train_rows": 220580,
+      "validation_rows": 15684,
+      "test_rows": 100000,
+      "excluded_rows": 163736,
+      "validation": {
+        "AP": 0.18520929982700357,
+        "ROC_AUC": 0.6864198184386578,
+        "log_loss": 0.3047251292045727,
+        "Brier": 0.08648216175756074,
+        "prevalence": 0.09991073705687324,
+        "rows": 15684
+      },
+      "test": {
+        "AP": 0.17543648136128023,
+        "ROC_AUC": 0.6951413869832176,
+        "log_loss": 0.3026807209513016,
+        "Brier": 0.08639571676530328,
+        "prevalence": 0.09908,
+        "rows": 100000
+      }
+    },
+    "30": {
+      "feasible": false,
+      "train_rows": 137203,
+      "validation_rows": 0,
+      "test_rows": 100000,
+      "note": "A partition is empty at this gap under 60/20/20 splits on 91 days of logs."
+    }
+  },
+  "runtime_seconds": 333.6
+}

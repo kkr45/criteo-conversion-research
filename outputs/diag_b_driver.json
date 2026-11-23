@@ -1,0 +1,612 @@
+{
+  "scanned": 15995634,
+  "splits": {
+    "train": {
+      "rows": 300000,
+      "first_utc": "2020-08-03 07:25:18+00:00",
+      "last_utc": "2020-09-29 22:50:32+00:00",
+      "prevalence": 0.11360666666666666
+    },
+    "validation": {
+      "rows": 100000,
+      "first_utc": "2020-09-29 22:50:47+00:00",
+      "last_utc": "2020-10-16 19:04:50+00:00",
+      "prevalence": 0.10274
+    },
+    "test": {
+      "rows": 100000,
+      "first_utc": "2020-10-16 19:04:54+00:00",
+      "last_utc": "2020-11-02 07:24:28+00:00",
+      "prevalence": 0.09908
+    }
+  },
+  "sentinel_by_sale_train": {
+    "Sale": {
+      "miss_rate_Sale0": 0.0,
+      "miss_rate_Sale1": 0.0
+    },
+    "SalesAmountInEuro": {
+      "miss_rate_Sale0": 1.0,
+      "miss_rate_Sale1": 0.0
+    },
+    "time_delay_for_conversion": {
+      "miss_rate_Sale0": 1.0,
+      "miss_rate_Sale1": 0.0028
+    },
+    "click_timestamp": {
+      "miss_rate_Sale0": 0.0,
+      "miss_rate_Sale1": 0.0
+    },
+    "nb_clicks_1week": {
+      "miss_rate_Sale0": 0.438,
+      "miss_rate_Sale1": 0.4676
+    },
+    "product_price": {
+      "miss_rate_Sale0": 0.0,
+      "miss_rate_Sale1": 0.0
+    },
+    "product_age_group": {
+      "miss_rate_Sale0": 0.7373,
+      "miss_rate_Sale1": 0.7642
+    },
+    "device_type": {
+      "miss_rate_Sale0": 0.0002,
+      "miss_rate_Sale1": 0.0
+    },
+    "audience_id": {
+      "miss_rate_Sale0": 0.7555,
+      "miss_rate_Sale1": 0.5898
+    },
+    "product_gender": {
+      "miss_rate_Sale0": 0.734,
+      "miss_rate_Sale1": 0.7585
+    },
+    "product_brand": {
+      "miss_rate_Sale0": 0.5027,
+      "miss_rate_Sale1": 0.5797
+    },
+    "product_category1": {
+      "miss_rate_Sale0": 0.414,
+      "miss_rate_Sale1": 0.4482
+    },
+    "product_category2": {
+      "miss_rate_Sale0": 0.4148,
+      "miss_rate_Sale1": 0.4485
+    },
+    "product_category3": {
+      "miss_rate_Sale0": 0.4895,
+      "miss_rate_Sale1": 0.5219
+    },
+    "product_category4": {
+      "miss_rate_Sale0": 0.6796,
+      "miss_rate_Sale1": 0.7035
+    },
+    "product_category5": {
+      "miss_rate_Sale0": 0.9173,
+      "miss_rate_Sale1": 0.9144
+    },
+    "product_category6": {
+      "miss_rate_Sale0": 0.9836,
+      "miss_rate_Sale1": 0.9872
+    },
+    "product_category7": {
+      "miss_rate_Sale0": 1.0,
+      "miss_rate_Sale1": 1.0
+    },
+    "product_country": {
+      "miss_rate_Sale0": 0.234,
+      "miss_rate_Sale1": 0.2616
+    },
+    "product_id": {
+      "miss_rate_Sale0": 0.2334,
+      "miss_rate_Sale1": 0.2617
+    },
+    "product_title": {
+      "miss_rate_Sale0": 0.414,
+      "miss_rate_Sale1": 0.4482
+    },
+    "partner_id": {
+      "miss_rate_Sale0": 0.0,
+      "miss_rate_Sale1": 0.0
+    },
+    "user_id": {
+      "miss_rate_Sale0": 0.0,
+      "miss_rate_Sale1": 0.0
+    }
+  },
+  "numeric_by_sale_train": {
+    "product_price": {
+      "mean_Sale0": 0.0,
+      "mean_Sale1": 92.8337,
+      "frac_eq_-1_Sale0": 0.0,
+      "frac_eq_-1_Sale1": 0.0,
+      "frac_eq_0_Sale0": 1.0,
+      "frac_eq_0_Sale1": 0.066
+    },
+    "nb_clicks_1week": {
+      "mean_Sale0": 225.5998,
+      "mean_Sale1": 109.8727,
+      "frac_eq_-1_Sale0": 0.438,
+      "frac_eq_-1_Sale1": 0.4676,
+      "frac_eq_0_Sale0": 0.0594,
+      "frac_eq_0_Sale1": 0.0749
+    },
+    "SalesAmountInEuro": {
+      "mean_Sale0": -1.0,
+      "mean_Sale1": 112.1163,
+      "frac_eq_-1_Sale0": 1.0,
+      "frac_eq_-1_Sale1": 0.0,
+      "frac_eq_0_Sale0": 0.0,
+      "frac_eq_0_Sale1": 0.0513
+    },
+    "time_delay_for_conversion": {
+      "mean_Sale0": -1.0,
+      "mean_Sale1": 328000.9426,
+      "frac_eq_-1_Sale0": 1.0,
+      "frac_eq_-1_Sale1": 0.0028,
+      "frac_eq_0_Sale0": 0.0,
+      "frac_eq_0_Sale1": 0.0
+    }
+  },
+  "single_column_test_AP": {
+    "product_age_group": 0.102,
+    "device_type": 0.1279,
+    "product_gender": 0.1041,
+    "product_brand": 0.1406,
+    "product_category1": 0.1104,
+    "product_category2": 0.115,
+    "product_category3": 0.1194,
+    "product_category4": 0.1173,
+    "product_category5": 0.1056,
+    "product_category6": 0.0998,
+    "product_category7": 0.0991,
+    "product_country": 0.1365,
+    "product_price (raw)": 0.9401,
+    "product_price (neg raw)": 0.0516,
+    "nb_clicks_1week (raw)": 0.0872,
+    "nb_clicks_1week (neg raw)": 0.1085
+  },
+  "group_ablations": {
+    "numeric_only": {
+      "validation": {
+        "AP": 0.9431,
+        "ROC_AUC": 0.9667,
+        "log_loss": 0.0582,
+        "Brier": 0.0115,
+        "prevalence": 0.1027
+      },
+      "test": {
+        "AP": 0.9435,
+        "ROC_AUC": 0.9677,
+        "log_loss": 0.0558,
+        "Brier": 0.011,
+        "prevalence": 0.0991
+      }
+    },
+    "categorical_only": {
+      "validation": {
+        "AP": 0.1894,
+        "ROC_AUC": 0.6962,
+        "log_loss": 0.3085,
+        "Brier": 0.0884,
+        "prevalence": 0.1027
+      },
+      "test": {
+        "AP": 0.1809,
+        "ROC_AUC": 0.7009,
+        "log_loss": 0.3008,
+        "Brier": 0.0859,
+        "prevalence": 0.0991
+      }
+    },
+    "only_product_age_group": {
+      "validation": {
+        "AP": 0.1079,
+        "ROC_AUC": 0.5198,
+        "log_loss": 0.3312,
+        "Brier": 0.0922,
+        "prevalence": 0.1027
+      },
+      "test": {
+        "AP": 0.1023,
+        "ROC_AUC": 0.5159,
+        "log_loss": 0.3239,
+        "Brier": 0.0894,
+        "prevalence": 0.0991
+      }
+    },
+    "only_device_type": {
+      "validation": {
+        "AP": 0.1307,
+        "ROC_AUC": 0.6041,
+        "log_loss": 0.3241,
+        "Brier": 0.0909,
+        "prevalence": 0.1027
+      },
+      "test": {
+        "AP": 0.1279,
+        "ROC_AUC": 0.6092,
+        "log_loss": 0.3164,
+        "Brier": 0.0881,
+        "prevalence": 0.0991
+      }
+    },
+    "only_product_gender": {
+      "validation": {
+        "AP": 0.1062,
+        "ROC_AUC": 0.5155,
+        "log_loss": 0.3314,
+        "Brier": 0.0923,
+        "prevalence": 0.1027
+      },
+      "test": {
+        "AP": 0.1041,
+        "ROC_AUC": 0.5228,
+        "log_loss": 0.3238,
+        "Brier": 0.0894,
+        "prevalence": 0.0991
+      }
+    },
+    "only_product_brand": {
+      "validation": {
+        "AP": 0.1427,
+        "ROC_AUC": 0.6025,
+        "log_loss": 0.3237,
+        "Brier": 0.0909,
+        "prevalence": 0.1027
+      },
+      "test": {
+        "AP": 0.1334,
+        "ROC_AUC": 0.6063,
+        "log_loss": 0.3162,
+        "Brier": 0.0882,
+        "prevalence": 0.0991
+      }
+    },
+    "only_product_category1": {
+      "validation": {
+        "AP": 0.1157,
+        "ROC_AUC": 0.5427,
+        "log_loss": 0.3305,
+        "Brier": 0.0921,
+        "prevalence": 0.1027
+      },
+      "test": {
+        "AP": 0.1104,
+        "ROC_AUC": 0.5456,
+        "log_loss": 0.323,
+        "Brier": 0.0893,
+        "prevalence": 0.0991
+      }
+    },
+    "only_product_category2": {
+      "validation": {
+        "AP": 0.1223,
+        "ROC_AUC": 0.5578,
+        "log_loss": 0.3295,
+        "Brier": 0.0919,
+        "prevalence": 0.1027
+      },
+      "test": {
+        "AP": 0.115,
+        "ROC_AUC": 0.552,
+        "log_loss": 0.3224,
+        "Brier": 0.0892,
+        "prevalence": 0.0991
+      }
+    },
+    "only_product_category3": {
+      "validation": {
+        "AP": 0.124,
+        "ROC_AUC": 0.562,
+        "log_loss": 0.3289,
+        "Brier": 0.0918,
+        "prevalence": 0.1027
+      },
+      "test": {
+        "AP": 0.1188,
+        "ROC_AUC": 0.563,
+        "log_loss": 0.3215,
+        "Brier": 0.0891,
+        "prevalence": 0.0991
+      }
+    },
+    "only_product_category4": {
+      "validation": {
+        "AP": 0.1197,
+        "ROC_AUC": 0.5528,
+        "log_loss": 0.3292,
+        "Brier": 0.0919,
+        "prevalence": 0.1027
+      },
+      "test": {
+        "AP": 0.1164,
+        "ROC_AUC": 0.5576,
+        "log_loss": 0.3213,
+        "Brier": 0.089,
+        "prevalence": 0.0991
+      }
+    },
+    "only_product_category5": {
+      "validation": {
+        "AP": 0.1088,
+        "ROC_AUC": 0.5162,
+        "log_loss": 0.3308,
+        "Brier": 0.0921,
+        "prevalence": 0.1027
+      },
+      "test": {
+        "AP": 0.105,
+        "ROC_AUC": 0.5144,
+        "log_loss": 0.3232,
+        "Brier": 0.0893,
+        "prevalence": 0.0991
+      }
+    },
+    "only_product_category6": {
+      "validation": {
+        "AP": 0.1036,
+        "ROC_AUC": 0.5044,
+        "log_loss": 0.3313,
+        "Brier": 0.0923,
+        "prevalence": 0.1027
+      },
+      "test": {
+        "AP": 0.0996,
+        "ROC_AUC": 0.5029,
+        "log_loss": 0.324,
+        "Brier": 0.0895,
+        "prevalence": 0.0991
+      }
+    },
+    "only_product_category7": {
+      "validation": {
+        "AP": 0.1027,
+        "ROC_AUC": 0.5,
+        "log_loss": 0.3317,
+        "Brier": 0.0923,
+        "prevalence": 0.1027
+      },
+      "test": {
+        "AP": 0.0991,
+        "ROC_AUC": 0.5,
+        "log_loss": 0.3242,
+        "Brier": 0.0895,
+        "prevalence": 0.0991
+      }
+    },
+    "only_product_country": {
+      "validation": {
+        "AP": 0.1382,
+        "ROC_AUC": 0.6286,
+        "log_loss": 0.3192,
+        "Brier": 0.0904,
+        "prevalence": 0.1027
+      },
+      "test": {
+        "AP": 0.1365,
+        "ROC_AUC": 0.6346,
+        "log_loss": 0.3109,
+        "Brier": 0.0875,
+        "prevalence": 0.0991
+      }
+    },
+    "B_minus_product_age_group": {
+      "validation": {
+        "AP": 0.9546,
+        "ROC_AUC": 0.9875,
+        "log_loss": 0.051,
+        "Brier": 0.0114,
+        "prevalence": 0.1027
+      },
+      "test": {
+        "AP": 0.9553,
+        "ROC_AUC": 0.988,
+        "log_loss": 0.0488,
+        "Brier": 0.0108,
+        "prevalence": 0.0991
+      }
+    },
+    "B_minus_device_type": {
+      "validation": {
+        "AP": 0.9497,
+        "ROC_AUC": 0.9873,
+        "log_loss": 0.0511,
+        "Brier": 0.0114,
+        "prevalence": 0.1027
+      },
+      "test": {
+        "AP": 0.9504,
+        "ROC_AUC": 0.9877,
+        "log_loss": 0.049,
+        "Brier": 0.0108,
+        "prevalence": 0.0991
+      }
+    },
+    "B_minus_product_gender": {
+      "validation": {
+        "AP": 0.9546,
+        "ROC_AUC": 0.9875,
+        "log_loss": 0.051,
+        "Brier": 0.0114,
+        "prevalence": 0.1027
+      },
+      "test": {
+        "AP": 0.9552,
+        "ROC_AUC": 0.9879,
+        "log_loss": 0.0489,
+        "Brier": 0.0108,
+        "prevalence": 0.0991
+      }
+    },
+    "B_minus_product_brand": {
+      "validation": {
+        "AP": 0.9539,
+        "ROC_AUC": 0.9869,
+        "log_loss": 0.0514,
+        "Brier": 0.0113,
+        "prevalence": 0.1027
+      },
+      "test": {
+        "AP": 0.9541,
+        "ROC_AUC": 0.9874,
+        "log_loss": 0.0493,
+        "Brier": 0.0108,
+        "prevalence": 0.0991
+      }
+    },
+    "B_minus_product_category1": {
+      "validation": {
+        "AP": 0.9546,
+        "ROC_AUC": 0.9875,
+        "log_loss": 0.051,
+        "Brier": 0.0114,
+        "prevalence": 0.1027
+      },
+      "test": {
+        "AP": 0.9554,
+        "ROC_AUC": 0.9881,
+        "log_loss": 0.0488,
+        "Brier": 0.0108,
+        "prevalence": 0.0991
+      }
+    },
+    "B_minus_product_category2": {
+      "validation": {
+        "AP": 0.9545,
+        "ROC_AUC": 0.9875,
+        "log_loss": 0.051,
+        "Brier": 0.0114,
+        "prevalence": 0.1027
+      },
+      "test": {
+        "AP": 0.9553,
+        "ROC_AUC": 0.9881,
+        "log_loss": 0.0488,
+        "Brier": 0.0108,
+        "prevalence": 0.0991
+      }
+    },
+    "B_minus_product_category3": {
+      "validation": {
+        "AP": 0.9545,
+        "ROC_AUC": 0.9875,
+        "log_loss": 0.0509,
+        "Brier": 0.0114,
+        "prevalence": 0.1027
+      },
+      "test": {
+        "AP": 0.9555,
+        "ROC_AUC": 0.9882,
+        "log_loss": 0.0487,
+        "Brier": 0.0108,
+        "prevalence": 0.0991
+      }
+    },
+    "B_minus_product_category4": {
+      "validation": {
+        "AP": 0.9547,
+        "ROC_AUC": 0.9876,
+        "log_loss": 0.0508,
+        "Brier": 0.0113,
+        "prevalence": 0.1027
+      },
+      "test": {
+        "AP": 0.9553,
+        "ROC_AUC": 0.9881,
+        "log_loss": 0.0487,
+        "Brier": 0.0107,
+        "prevalence": 0.0991
+      }
+    },
+    "B_minus_product_category5": {
+      "validation": {
+        "AP": 0.9545,
+        "ROC_AUC": 0.9875,
+        "log_loss": 0.0509,
+        "Brier": 0.0114,
+        "prevalence": 0.1027
+      },
+      "test": {
+        "AP": 0.9554,
+        "ROC_AUC": 0.9881,
+        "log_loss": 0.0488,
+        "Brier": 0.0108,
+        "prevalence": 0.0991
+      }
+    },
+    "B_minus_product_category6": {
+      "validation": {
+        "AP": 0.9546,
+        "ROC_AUC": 0.9875,
+        "log_loss": 0.051,
+        "Brier": 0.0114,
+        "prevalence": 0.1027
+      },
+      "test": {
+        "AP": 0.9554,
+        "ROC_AUC": 0.9881,
+        "log_loss": 0.0488,
+        "Brier": 0.0108,
+        "prevalence": 0.0991
+      }
+    },
+    "B_minus_product_category7": {
+      "validation": {
+        "AP": 0.9545,
+        "ROC_AUC": 0.9875,
+        "log_loss": 0.0509,
+        "Brier": 0.0114,
+        "prevalence": 0.1027
+      },
+      "test": {
+        "AP": 0.9553,
+        "ROC_AUC": 0.9881,
+        "log_loss": 0.0488,
+        "Brier": 0.0108,
+        "prevalence": 0.0991
+      }
+    },
+    "B_minus_product_country": {
+      "validation": {
+        "AP": 0.9512,
+        "ROC_AUC": 0.9842,
+        "log_loss": 0.0528,
+        "Brier": 0.0115,
+        "prevalence": 0.1027
+      },
+      "test": {
+        "AP": 0.9521,
+        "ROC_AUC": 0.9852,
+        "log_loss": 0.0504,
+        "Brier": 0.011,
+        "prevalence": 0.0991
+      }
+    },
+    "B_minus_numeric": {
+      "validation": {
+        "AP": 0.1894,
+        "ROC_AUC": 0.6962,
+        "log_loss": 0.3085,
+        "Brier": 0.0884,
+        "prevalence": 0.1027
+      },
+      "test": {
+        "AP": 0.1809,
+        "ROC_AUC": 0.7009,
+        "log_loss": 0.3008,
+        "Brier": 0.0859,
+        "prevalence": 0.0991
+      }
+    }
+  },
+  "combo_overlap": {
+    "test_rows_with_exact_B_combo_seen_in_train": 75926,
+    "test_rows": 100000,
+    "frac_seen": 0.7593,
+    "test_prevalence_seen": 0.0994,
+    "test_prevalence_unseen": 0.098
+  },
+  "B_logistic_test_AP_seen_subset": 0.9402,
+  "B_logistic_test_AP_unseen_subset": 0.9923
+}

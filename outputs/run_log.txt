@@ -1,0 +1,23 @@
+[2026-11-23 03:09:11 UTC] DATA_PATH=/home/hatch/workspace/anly530/ka1-milestone2/data/CriteoSearchData
+[2026-11-23 03:09:11 UTC] sample_rows=500000 seed=530
+[2026-11-23 03:09:11 UTC] python=3.12.3 pandas=3.1.1 numpy=2.5.4 sklearn=1.9.1 matplotlib=3.11.2
+[2026-11-23 03:13:16 UTC] separator='\t' header=False scanned=15,995,634 retained=500,000
+[2026-11-23 03:13:27 UTC] audit: prevalence=0.1085 duplicates=21 invalid_ts=0 range=2020-08-03 07:25:18+00:00 .. 2020-11-02 07:24:28+00:00
+[2026-11-23 03:13:28 UTC] splits: {"train": {"rows": 300000, "first_utc": "2020-08-03 07:25:18+00:00", "last_utc": "2020-09-29 22:50:32+00:00", "prevalence": 0.11360666666666666}, "validation": {"rows": 100000, "first_utc": "2020-09-29 22:50:47+00:00", "last_utc": "2020-10-16 19:04:50+00:00", "prevalence": 0.10274}, "test": {"rows": 100000, "first_utc": "2020-10-16 19:04:54+00:00", "last_utc": "2020-11-02 07:24:28+00:00", "prevalence": 0.09908}}
+[2026-11-23 03:13:42 UTC] A_leakage_diagnostic_logistic: val AP=0.9975 test AP=0.9962
+[2026-11-23 03:13:54 UTC] B_baseline_logistic: val AP=0.9545 test AP=0.9553
+[2026-11-23 03:14:06 UTC] C_conservative_logistic: val AP=0.9545 test AP=0.9552
+[2026-11-23 03:14:22 UTC] D_defensible_logistic: val AP=0.1886 test AP=0.1810
+[2026-11-23 03:14:37 UTC] E_categorical_only_logistic: val AP=0.1894 test AP=0.1809
+[2026-11-23 03:14:59 UTC] B_gbm: val AP=0.9548 test AP=0.9550
+[2026-11-23 03:15:20 UTC] C_gbm: val AP=0.9555 test AP=0.9554
+[2026-11-23 03:15:37 UTC] D_gbm: val AP=0.1915 test AP=0.1866
+[2026-11-23 03:15:49 UTC] calibration B_logistic: ECE=0.0110 slope=2.328 intercept=3.633
+[2026-11-23 03:15:50 UTC] calibration B_gbm: ECE=0.0058 slope=0.754 intercept=0.616
+[2026-11-23 03:15:58 UTC] W1_train_first40_test_last20: test AP=0.9541
+[2026-11-23 03:16:06 UTC] W2_train_20to60_test_last20: test AP=0.9519
+[2026-11-23 03:16:20 UTC] gap 0d: val AP=0.9545 test AP=0.9553
+[2026-11-23 03:16:30 UTC] gap 7d: val AP=0.9553 test AP=0.9552
+[2026-11-23 03:16:39 UTC] gap 14d: val AP=0.9548 test AP=0.9547
+[2026-11-23 03:16:39 UTC] gap 30d: INFEASIBLE (train=137203 valid=0 test=100000)
+[2026-11-23 03:16:44 UTC] DONE in 452.4s. Leakage drop (A-B, test AP) = 0.0408; B-C drop = 0.0001; honest drop (A-D) = 0.8152; price effect (B-D) = 0.7744

@@ -2,6 +2,15 @@ data/*
 !data/.gitkeep
 outputs/*
 !outputs/.gitkeep
+# Milestone 2 aggregate outputs (no row-level data): metrics, run log,
+# figures, calibration/PR tables and sensitivity JSONs are committed.
+!outputs/metrics_milestone2.json
+!outputs/run_log.txt
+!outputs/fig1_pr_curves.png
+!outputs/fig2_reliability.png
+!outputs/fig3_test_ap_bars.png
+!outputs/d_defensible_sensitivity.json
+!outputs/diag_b_driver.json
 .ipynb_checkpoints/
 __pycache__/
 .venv/
@@ -11,3 +20,6 @@ __pycache__/
 *.tsv
 *.parquet
 CriteoSearchData*
+# ...except the two aggregate tables above (negations must come after *.csv)
+!outputs/pr_curves_test.csv
+!outputs/calibration_test.csv

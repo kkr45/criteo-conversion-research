@@ -1,0 +1,890 @@
+{
+  "reproduction": {
+    "data_path": "/home/hatch/workspace/anly530/ka1-milestone2/data/CriteoSearchData",
+    "scanned_rows": 15995634,
+    "sample_rows": 500000,
+    "seed": 530,
+    "separator": "\t",
+    "header_present": false,
+    "splits": {
+      "train": {
+        "rows": 300000,
+        "first_utc": "2020-08-03 07:25:18+00:00",
+        "last_utc": "2020-09-29 22:50:32+00:00",
+        "prevalence": 0.11360666666666666
+      },
+      "validation": {
+        "rows": 100000,
+        "first_utc": "2020-09-29 22:50:47+00:00",
+        "last_utc": "2020-10-16 19:04:50+00:00",
+        "prevalence": 0.10274
+      },
+      "test": {
+        "rows": 100000,
+        "first_utc": "2020-10-16 19:04:54+00:00",
+        "last_utc": "2020-11-02 07:24:28+00:00",
+        "prevalence": 0.09908
+      }
+    },
+    "train_prevalence": 0.11360666666666666,
+    "arm_features": {
+      "A_leakage_diagnostic_logistic": {
+        "numeric": [
+          "product_price",
+          "nb_clicks_1week"
+        ],
+        "categorical": [
+          "product_age_group",
+          "device_type",
+          "product_gender",
+          "product_brand",
+          "product_category1",
+          "product_category2",
+          "product_category3",
+          "product_category4",
+          "product_category5",
+          "product_category6",
+          "product_category7",
+          "product_country"
+        ],
+        "leaky_numeric_added": [
+          "SalesAmountInEuro",
+          "time_delay_for_conversion"
+        ]
+      },
+      "B_baseline_logistic": {
+        "numeric": [
+          "product_price",
+          "nb_clicks_1week"
+        ],
+        "categorical": [
+          "product_age_group",
+          "device_type",
+          "product_gender",
+          "product_brand",
+          "product_category1",
+          "product_category2",
+          "product_category3",
+          "product_category4",
+          "product_category5",
+          "product_category6",
+          "product_category7",
+          "product_country"
+        ]
+      },
+      "C_conservative_logistic": {
+        "numeric": [
+          "product_price"
+        ],
+        "categorical": [
+          "product_age_group",
+          "device_type",
+          "product_gender",
+          "product_brand",
+          "product_category1",
+          "product_category2",
+          "product_category3",
+          "product_category4",
+          "product_category5",
+          "product_category6",
+          "product_category7",
+          "product_country"
+        ]
+      },
+      "B_gbm": {
+        "numeric": [
+          "product_price",
+          "nb_clicks_1week"
+        ],
+        "categorical": [
+          "product_age_group",
+          "device_type",
+          "product_gender",
+          "product_brand",
+          "product_category1",
+          "product_category2",
+          "product_category3",
+          "product_category4",
+          "product_category5",
+          "product_category6",
+          "product_category7",
+          "product_country"
+        ]
+      },
+      "C_gbm": {
+        "numeric": [
+          "product_price"
+        ],
+        "categorical": [
+          "product_age_group",
+          "device_type",
+          "product_gender",
+          "product_brand",
+          "product_category1",
+          "product_category2",
+          "product_category3",
+          "product_category4",
+          "product_category5",
+          "product_category6",
+          "product_category7",
+          "product_country"
+        ]
+      },
+      "D_defensible_logistic": {
+        "numeric": [
+          "nb_clicks_1week"
+        ],
+        "categorical": [
+          "product_age_group",
+          "device_type",
+          "product_gender",
+          "product_brand",
+          "product_category1",
+          "product_category2",
+          "product_category3",
+          "product_category4",
+          "product_category5",
+          "product_category6",
+          "product_category7",
+          "product_country"
+        ],
+        "note": "B minus product_price; product_price is 0.0 for every non-conversion"
+      },
+      "D_gbm": {
+        "numeric": [
+          "nb_clicks_1week"
+        ],
+        "categorical": [
+          "product_age_group",
+          "device_type",
+          "product_gender",
+          "product_brand",
+          "product_category1",
+          "product_category2",
+          "product_category3",
+          "product_category4",
+          "product_category5",
+          "product_category6",
+          "product_category7",
+          "product_country"
+        ]
+      },
+      "E_categorical_only_logistic": {
+        "numeric": [],
+        "categorical": [
+          "product_age_group",
+          "device_type",
+          "product_gender",
+          "product_brand",
+          "product_category1",
+          "product_category2",
+          "product_category3",
+          "product_category4",
+          "product_category5",
+          "product_category6",
+          "product_category7",
+          "product_country"
+        ]
+      }
+    },
+    "models": {
+      "logistic": "LogisticRegression(C=1.0, liblinear, max_iter=500); OneHotEncoder(min_frequency=20); median imputation + StandardScaler fitted on train only",
+      "gbm": "HistGradientBoostingClassifier(max_iter=300, learning_rate=0.06, max_leaf_nodes=31, min_samples_leaf=20); native categorical handling via OrdinalEncoder; per-column rare values grouped to '__OTHER__' (top 200 train values kept) because raw hashed cardinality exceeds the 255-bin limit"
+    },
+    "versions": {
+      "python": "3.12.3",
+      "pandas": "3.1.1",
+      "numpy": "2.5.4",
+      "sklearn": "1.9.1",
+      "matplotlib": "3.11.2"
+    },
+    "runtime_seconds": 452.4
+  },
+  "audit": {
+    "sample_rows": 500000,
+    "conversions": 54264,
+    "prevalence": 0.108528,
+    "exact_duplicate_rows": 21,
+    "columns": [
+      {
+        "column": "Sale",
+        "pandas_na_pct": 0.0,
+        "minus_one_sentinel_pct": 0.0,
+        "distinct_values": 2
+      },
+      {
+        "column": "SalesAmountInEuro",
+        "pandas_na_pct": 0.0,
+        "minus_one_sentinel_pct": 89.15,
+        "distinct_values": 35728
+      },
+      {
+        "column": "time_delay_for_conversion",
+        "pandas_na_pct": 0.0,
+        "minus_one_sentinel_pct": 89.18,
+        "distinct_values": 29093
+      },
+      {
+        "column": "click_timestamp",
+        "pandas_na_pct": 0.0,
+        "minus_one_sentinel_pct": 0.0,
+        "distinct_values": 481805
+      },
+      {
+        "column": "nb_clicks_1week",
+        "pandas_na_pct": 0.0,
+        "minus_one_sentinel_pct": 42.31,
+        "distinct_values": 4299
+      },
+      {
+        "column": "product_price",
+        "pandas_na_pct": 0.0,
+        "minus_one_sentinel_pct": 0.0,
+        "distinct_values": 10287
+      },
+      {
+        "column": "product_age_group",
+        "pandas_na_pct": 0.0,
+        "minus_one_sentinel_pct": 73.6,
+        "distinct_values": 11
+      },
+      {
+        "column": "device_type",
+        "pandas_na_pct": 0.0,
+        "minus_one_sentinel_pct": 0.02,
+        "distinct_values": 6
+      },
+      {
+        "column": "audience_id",
+        "pandas_na_pct": 0.0,
+        "minus_one_sentinel_pct": 71.94,
+        "distinct_values": 8929
+      },
+      {
+        "column": "product_gender",
+        "pandas_na_pct": 0.0,
+        "minus_one_sentinel_pct": 72.96,
+        "distinct_values": 17
+      },
+      {
+        "column": "product_brand",
+        "pandas_na_pct": 0.0,
+        "minus_one_sentinel_pct": 45.41,
+        "distinct_values": 16865
+      },
+      {
+        "column": "product_category1",
+        "pandas_na_pct": 0.0,
+        "minus_one_sentinel_pct": 38.58,
+        "distinct_values": 22
+      },
+      {
+        "column": "product_category2",
+        "pandas_na_pct": 0.0,
+        "minus_one_sentinel_pct": 38.63,
+        "distinct_values": 162
+      },
+      {
+        "column": "product_category3",
+        "pandas_na_pct": 0.0,
+        "minus_one_sentinel_pct": 46.01,
+        "distinct_values": 917
+      },
+      {
+        "column": "product_category4",
+        "pandas_na_pct": 0.0,
+        "minus_one_sentinel_pct": 65.66,
+        "distinct_values": 1302
+      },
+      {
+        "column": "product_category5",
+        "pandas_na_pct": 0.0,
+        "minus_one_sentinel_pct": 91.26,
+        "distinct_values": 668
+      },
+      {
+        "column": "product_category6",
+        "pandas_na_pct": 0.0,
+        "minus_one_sentinel_pct": 98.26,
+        "distinct_values": 165
+      },
+      {
+        "column": "product_category7",
+        "pandas_na_pct": 0.0,
+        "minus_one_sentinel_pct": 100.0,
+        "distinct_values": 5
+      },
+      {
+        "column": "product_country",
+        "pandas_na_pct": 0.0,
+        "minus_one_sentinel_pct": 24.03,
+        "distinct_values": 20
+      },
+      {
+        "column": "product_id",
+        "pandas_na_pct": 0.0,
+        "minus_one_sentinel_pct": 23.98,
+        "distinct_values": 190947
+      },
+      {
+        "column": "product_title",
+        "pandas_na_pct": 0.41,
+        "minus_one_sentinel_pct": 38.58,
+        "distinct_values": 122298
+      },
+      {
+        "column": "partner_id",
+        "pandas_na_pct": 0.0,
+        "minus_one_sentinel_pct": 0.0,
+        "distinct_values": 293
+      },
+      {
+        "column": "user_id",
+        "pandas_na_pct": 0.0,
+        "minus_one_sentinel_pct": 0.0,
+        "distinct_values": 496314
+      }
+    ],
+    "leakage_audit": [
+      {
+        "field": "SalesAmountInEuro",
+        "Sale": 0,
+        "n": 445736,
+        "minus_one_pct": 100.0,
+        "non_sentinel_pct": 0.0
+      },
+      {
+        "field": "SalesAmountInEuro",
+        "Sale": 1,
+        "n": 54264,
+        "minus_one_pct": 0.0,
+        "non_sentinel_pct": 100.0
+      },
+      {
+        "field": "time_delay_for_conversion",
+        "Sale": 0,
+        "n": 445736,
+        "minus_one_pct": 100.0,
+        "non_sentinel_pct": 0.0
+      },
+      {
+        "field": "time_delay_for_conversion",
+        "Sale": 1,
+        "n": 54264,
+        "minus_one_pct": 0.28,
+        "non_sentinel_pct": 99.72
+      }
+    ],
+    "product_price_audit": {
+      "price_eq_0_pct_by_Sale": {
+        "0": 100.0,
+        "1": 6.62
+      },
+      "price_gt_0_pct_by_Sale": {
+        "0": 0.0,
+        "1": 93.38
+      },
+      "conversions_with_price_eq_salesamount_pct": 26.84,
+      "conversion_rate_among_price_gt_0_pct": 100.0,
+      "conversion_rate_among_price_eq_0_pct": 0.8
+    },
+    "invalid_timestamps": 0,
+    "first_click_utc": "2020-08-03 07:25:18+00:00",
+    "last_click_utc": "2020-11-02 07:24:28+00:00",
+    "coverage_days": 90.99942129629629,
+    "weekly_prevalence": [
+      {
+        "week_start_utc": "2020-08-03 00:00:00+00:00",
+        "clicks": 34228,
+        "conversions": 4259,
+        "rate": 0.1244
+      },
+      {
+        "week_start_utc": "2020-08-10 00:00:00+00:00",
+        "clicks": 34890,
+        "conversions": 4037,
+        "rate": 0.1157
+      },
+      {
+        "week_start_utc": "2020-08-17 00:00:00+00:00",
+        "clicks": 32555,
+        "conversions": 3555,
+        "rate": 0.1092
+      },
+      {
+        "week_start_utc": "2020-08-24 00:00:00+00:00",
+        "clicks": 35888,
+        "conversions": 3921,
+        "rate": 0.1093
+      },
+      {
+        "week_start_utc": "2020-08-31 00:00:00+00:00",
+        "clicks": 36684,
+        "conversions": 4296,
+        "rate": 0.1171
+      },
+      {
+        "week_start_utc": "2020-09-07 00:00:00+00:00",
+        "clicks": 35732,
+        "conversions": 4277,
+        "rate": 0.1197
+      },
+      {
+        "week_start_utc": "2020-09-14 00:00:00+00:00",
+        "clicks": 38156,
+        "conversions": 4303,
+        "rate": 0.1128
+      },
+      {
+        "week_start_utc": "2020-09-21 00:00:00+00:00",
+        "clicks": 40131,
+        "conversions": 4191,
+        "rate": 0.1044
+      },
+      {
+        "week_start_utc": "2020-09-28 00:00:00+00:00",
+        "clicks": 40235,
+        "conversions": 4192,
+        "rate": 0.1042
+      },
+      {
+        "week_start_utc": "2020-10-05 00:00:00+00:00",
+        "clicks": 42236,
+        "conversions": 4340,
+        "rate": 0.1028
+      },
+      {
+        "week_start_utc": "2020-10-12 00:00:00+00:00",
+        "clicks": 42723,
+        "conversions": 4381,
+        "rate": 0.1025
+      },
+      {
+        "week_start_utc": "2020-10-19 00:00:00+00:00",
+        "clicks": 41942,
+        "conversions": 4219,
+        "rate": 0.1006
+      },
+      {
+        "week_start_utc": "2020-10-26 00:00:00+00:00",
+        "clicks": 41909,
+        "conversions": 4028,
+        "rate": 0.0961
+      },
+      {
+        "week_start_utc": "2020-11-02 00:00:00+00:00",
+        "clicks": 2691,
+        "conversions": 265,
+        "rate": 0.0985
+      }
+    ]
+  },
+  "results": {
+    "A_leakage_diagnostic_logistic": {
+      "validation": {
+        "AP": 0.9974933822832673,
+        "ROC_AUC": 0.9989964114615008,
+        "log_loss": 0.017867133026425702,
+        "Brier": 0.003481961244084578,
+        "prevalence": 0.10274,
+        "rows": 100000
+      },
+      "test": {
+        "AP": 0.9961740567056337,
+        "ROC_AUC": 0.998610427763332,
+        "log_loss": 0.01959295624375698,
+        "Brier": 0.003889537655558919,
+        "prevalence": 0.09908,
+        "rows": 100000
+      }
+    },
+    "B_baseline_logistic": {
+      "validation": {
+        "AP": 0.9544863438906743,
+        "ROC_AUC": 0.9874794391122557,
+        "log_loss": 0.050970577286000136,
+        "Brier": 0.011375984119509453,
+        "prevalence": 0.10274,
+        "rows": 100000
+      },
+      "test": {
+        "AP": 0.9553374444650744,
+        "ROC_AUC": 0.9880732182646077,
+        "log_loss": 0.048781131019441336,
+        "Brier": 0.010777787069172233,
+        "prevalence": 0.09908,
+        "rows": 100000
+      }
+    },
+    "C_conservative_logistic": {
+      "validation": {
+        "AP": 0.9544929018700613,
+        "ROC_AUC": 0.9875729640617948,
+        "log_loss": 0.05094996667802787,
+        "Brier": 0.011381962788326469,
+        "prevalence": 0.10274,
+        "rows": 100000
+      },
+      "test": {
+        "AP": 0.9552043195198058,
+        "ROC_AUC": 0.9880128036390594,
+        "log_loss": 0.04880132708949817,
+        "Brier": 0.010776655091261031,
+        "prevalence": 0.09908,
+        "rows": 100000
+      }
+    },
+    "D_defensible_logistic": {
+      "validation": {
+        "AP": 0.18856590467316847,
+        "ROC_AUC": 0.6962093073259683,
+        "log_loss": 0.30854943498590115,
+        "Brier": 0.0884083118994722,
+        "prevalence": 0.10274,
+        "rows": 100000
+      },
+      "test": {
+        "AP": 0.180979570822708,
+        "ROC_AUC": 0.7008838902371023,
+        "log_loss": 0.300790148090009,
+        "Brier": 0.08586105310047461,
+        "prevalence": 0.09908,
+        "rows": 100000
+      }
+    },
+    "E_categorical_only_logistic": {
+      "validation": {
+        "AP": 0.18938643159568308,
+        "ROC_AUC": 0.6961645823414004,
+        "log_loss": 0.3084986815065218,
+        "Brier": 0.08838700153647035,
+        "prevalence": 0.10274,
+        "rows": 100000
+      },
+      "test": {
+        "AP": 0.18094661275178725,
+        "ROC_AUC": 0.7008629448646322,
+        "log_loss": 0.30080118237331727,
+        "Brier": 0.08586702793890898,
+        "prevalence": 0.09908,
+        "rows": 100000
+      }
+    },
+    "constant_train_prevalence": {
+      "validation": {
+        "AP": 0.10274,
+        "ROC_AUC": 0.5,
+        "log_loss": 0.3316654515432408,
+        "Brier": 0.09230257684444443,
+        "prevalence": 0.10274,
+        "rows": 100000
+      },
+      "test": {
+        "AP": 0.09908,
+        "ROC_AUC": 0.5,
+        "log_loss": 0.32414627944932645,
+        "Brier": 0.08947417764444443,
+        "prevalence": 0.09908,
+        "rows": 100000
+      }
+    },
+    "B_gbm": {
+      "validation": {
+        "AP": 0.9547681800795095,
+        "ROC_AUC": 0.9842628953934556,
+        "log_loss": 0.04580906806830728,
+        "Brier": 0.006815977279362393,
+        "prevalence": 0.10274,
+        "rows": 100000
+      },
+      "test": {
+        "AP": 0.9550040108813684,
+        "ROC_AUC": 0.9852977281546547,
+        "log_loss": 0.04427259827213833,
+        "Brier": 0.006571174135709327,
+        "prevalence": 0.09908,
+        "rows": 100000
+      }
+    },
+    "C_gbm": {
+      "validation": {
+        "AP": 0.9555403509521825,
+        "ROC_AUC": 0.9850610882140085,
+        "log_loss": 0.04545238391589326,
+        "Brier": 0.006818680203449259,
+        "prevalence": 0.10274,
+        "rows": 100000
+      },
+      "test": {
+        "AP": 0.9553894778623239,
+        "ROC_AUC": 0.9857566140257898,
+        "log_loss": 0.04415277243063949,
+        "Brier": 0.006584354515070618,
+        "prevalence": 0.09908,
+        "rows": 100000
+      }
+    },
+    "D_gbm": {
+      "validation": {
+        "AP": 0.19145459473018994,
+        "ROC_AUC": 0.6983142372870516,
+        "log_loss": 0.3073630079761607,
+        "Brier": 0.08801948254710416,
+        "prevalence": 0.10274,
+        "rows": 100000
+      },
+      "test": {
+        "AP": 0.18662712861935662,
+        "ROC_AUC": 0.70509527180765,
+        "log_loss": 0.2990569859163577,
+        "Brier": 0.08522948020628306,
+        "prevalence": 0.09908,
+        "rows": 100000
+      }
+    }
+  },
+  "calibration_test": {
+    "B_logistic": {
+      "bins": [
+        {
+          "bin": 0,
+          "n": 90674,
+          "mean_pred": 0.0164,
+          "frac_pos": 0.0088
+        },
+        {
+          "bin": 1,
+          "n": 425,
+          "mean_pred": 0.1277,
+          "frac_pos": 0.5059
+        },
+        {
+          "bin": 2,
+          "n": 93,
+          "mean_pred": 0.2426,
+          "frac_pos": 0.914
+        },
+        {
+          "bin": 3,
+          "n": 65,
+          "mean_pred": 0.3457,
+          "frac_pos": 1.0
+        },
+        {
+          "bin": 4,
+          "n": 75,
+          "mean_pred": 0.4468,
+          "frac_pos": 1.0
+        },
+        {
+          "bin": 5,
+          "n": 69,
+          "mean_pred": 0.5514,
+          "frac_pos": 1.0
+        },
+        {
+          "bin": 6,
+          "n": 54,
+          "mean_pred": 0.6481,
+          "frac_pos": 1.0
+        },
+        {
+          "bin": 7,
+          "n": 74,
+          "mean_pred": 0.7501,
+          "frac_pos": 1.0
+        },
+        {
+          "bin": 8,
+          "n": 124,
+          "mean_pred": 0.8557,
+          "frac_pos": 1.0
+        },
+        {
+          "bin": 9,
+          "n": 8347,
+          "mean_pred": 0.9979,
+          "frac_pos": 1.0
+        }
+      ],
+      "ECE": 0.011,
+      "slope": 2.328,
+      "intercept": 3.633
+    },
+    "B_gbm": {
+      "bins": [
+        {
+          "bin": 0,
+          "n": 90715,
+          "mean_pred": 0.0009,
+          "frac_pos": 0.0073
+        },
+        {
+          "bin": 1,
+          "n": 31,
+          "mean_pred": 0.1226,
+          "frac_pos": 0.0323
+        },
+        {
+          "bin": 2,
+          "n": 4,
+          "mean_pred": 0.2186,
+          "frac_pos": 0.0
+        },
+        {
+          "bin": 3,
+          "n": 0,
+          "mean_pred": null,
+          "frac_pos": null
+        },
+        {
+          "bin": 4,
+          "n": 1,
+          "mean_pred": 0.4134,
+          "frac_pos": 0.0
+        },
+        {
+          "bin": 5,
+          "n": 0,
+          "mean_pred": null,
+          "frac_pos": null
+        },
+        {
+          "bin": 6,
+          "n": 0,
+          "mean_pred": null,
+          "frac_pos": null
+        },
+        {
+          "bin": 7,
+          "n": 0,
+          "mean_pred": null,
+          "frac_pos": null
+        },
+        {
+          "bin": 8,
+          "n": 0,
+          "mean_pred": null,
+          "frac_pos": null
+        },
+        {
+          "bin": 9,
+          "n": 9249,
+          "mean_pred": 0.9997,
+          "frac_pos": 1.0
+        }
+      ],
+      "ECE": 0.0058,
+      "slope": 0.754,
+      "intercept": 0.616
+    }
+  },
+  "rolling_windows_B_logistic": {
+    "W1_train_first40_test_last20": {
+      "train_rows": 200000,
+      "test_rows": 100000,
+      "train_range": "2020-08-03 07:25:18+00:00 .. 2020-09-12 00:58:34+00:00",
+      "test_range": "2020-10-16 19:04:54+00:00 .. 2020-11-02 07:24:28+00:00",
+      "AP": 0.954063627762243,
+      "ROC_AUC": 0.9875764825095761,
+      "log_loss": 0.05038926566714531,
+      "Brier": 0.01113182060446667,
+      "prevalence": 0.09908,
+      "rows": 100000
+    },
+    "W2_train_20to60_test_last20": {
+      "train_rows": 200000,
+      "test_rows": 100000,
+      "train_range": "2020-08-23 16:20:33+00:00 .. 2020-09-29 22:50:32+00:00",
+      "test_range": "2020-10-16 19:04:54+00:00 .. 2020-11-02 07:24:28+00:00",
+      "AP": 0.9519436585904097,
+      "ROC_AUC": 0.9869373660578356,
+      "log_loss": 0.05269197441490136,
+      "Brier": 0.011754038827668399,
+      "prevalence": 0.09908,
+      "rows": 100000
+    }
+  },
+  "label_gap_sweep_B_logistic": {
+    "0": {
+      "feasible": true,
+      "train_rows": 300000,
+      "validation_rows": 100000,
+      "test_rows": 100000,
+      "excluded_rows": 0,
+      "validation": {
+        "AP": 0.9544863438906743,
+        "ROC_AUC": 0.9874794391122557,
+        "log_loss": 0.050970577286000136,
+        "Brier": 0.011375984119509453,
+        "prevalence": 0.10274,
+        "rows": 100000
+      },
+      "test": {
+        "AP": 0.9553374444650744,
+        "ROC_AUC": 0.9880732182646077,
+        "log_loss": 0.048781131019441336,
+        "Brier": 0.010777787069172233,
+        "prevalence": 0.09908,
+        "rows": 100000
+      }
+    },
+    "7": {
+      "feasible": true,
+      "train_rows": 259657,
+      "validation_rows": 56915,
+      "test_rows": 100000,
+      "excluded_rows": 83428,
+      "validation": {
+        "AP": 0.9552925332995055,
+        "ROC_AUC": 0.9875623827471564,
+        "log_loss": 0.05105011420460554,
+        "Brier": 0.011344416426524775,
+        "prevalence": 0.10283756478959852,
+        "rows": 56915
+      },
+      "test": {
+        "AP": 0.9552211791443336,
+        "ROC_AUC": 0.9880076223298478,
+        "log_loss": 0.04934339797499354,
+        "Brier": 0.010896076769288405,
+        "prevalence": 0.09908,
+        "rows": 100000
+      }
+    },
+    "14": {
+      "feasible": true,
+      "train_rows": 220580,
+      "validation_rows": 15684,
+      "test_rows": 100000,
+      "excluded_rows": 163736,
+      "validation": {
+        "AP": 0.9548213362670859,
+        "ROC_AUC": 0.9868929950397668,
+        "log_loss": 0.050810834551383514,
+        "Brier": 0.01120006493835348,
+        "prevalence": 0.09991073705687324,
+        "rows": 15684
+      },
+      "test": {
+        "AP": 0.9546958838027295,
+        "ROC_AUC": 0.9877721377076689,
+        "log_loss": 0.04983332178032737,
+        "Brier": 0.010989193143299868,
+        "prevalence": 0.09908,
+        "rows": 100000
+      }
+    },
+    "30": {
+      "feasible": false,
+      "train_rows": 137203,
+      "validation_rows": 0,
+      "test_rows": 100000,
+      "note": "A partition is empty at this gap under 60/20/20 splits on 91 days of logs."
+    }
+  },
+  "leakage_drop_test_AP_A_minus_B": 0.0408,
+  "conservative_drop_test_AP_B_minus_C_logistic": 0.0001,
+  "honest_leakage_drop_test_AP_A_minus_D": 0.8152,
+  "price_effect_test_AP_B_minus_D_logistic": 0.7744
+}
