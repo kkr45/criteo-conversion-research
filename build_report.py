@@ -28,10 +28,9 @@ def r4(x):
 
 # ---------------- body text (counted) ----------------
 S1 = (
-    "The analysis uses the Criteo Sponsored Search Conversion Log (Criteo AI Lab, 2018), "
+    "The analysis uses the Criteo Sponsored Search Conversion Log (Criteo AI Lab, 2018; Tallis & Yadav, 2018), "
     "23 headerless tab-separated columns covering about 90 days of sponsored-search traffic. "
-    "Each row is one product-ad click; Sale records whether it led to a purchase within a 30-day window. The file supplied was the released log "
-    "itself (6.0 GB uncompressed). The loading script verified its format on entry — 23 fields, "
+    "Each row is one product-ad click; Sale records whether it led to a purchase within a 30-day window. The loading script verified its format on entry — 23 fields, "
     "first field Sale 0/1 — and scanned all 15,995,634 rows in 50,000-row chunks, retaining a "
     "uniform random sample of 500,000 clicks (seed 530) without loading the full file into "
     "memory. The sample contains 54,264 conversions (10.85%) and spans 3 August to 2 November "
@@ -69,16 +68,16 @@ S2 = (
     "device_type alone has about 11,454 distinct values, above the 255-bin limit. Numeric features were "
     "median-imputed and standardised, with every preprocessing step fitted on training data only.\n"
     "Performance is reported as average precision (scikit-learn, non-interpolated; primary), ROC-AUC, "
-    "log loss and Brier score, against a constant train-prevalence comparator (test AP 0.0991). "
-    "Calibration used 10-bin reliability tables, expected calibration error, and slope/intercept, for "
+    "log loss and Brier score (Davis & Goadrich, 2006; Saito & Rehmsmeier, 2015), against a constant train-prevalence comparator (test AP 0.0991). "
+    "Calibration used 10-bin reliability tables, expected calibration error, and slope/intercept (Guo et al., 2017; Niculescu-Mizil & Caruana, 2005), for "
     "the B pair and again for the D pair. Robustness was checked "
-    "with two rolling chronological windows (training on the first 40% or on rows 20–60%, testing on "
+    "with two rolling chronological windows (Cerqueira et al., 2020), training on the first 40% or on rows 20–60%, testing on "
     "the last 20%) and a label-gap sweep of 0, 7, 14 and 30 days, in which training and validation "
     "clicks immediately before the next partition are dropped."
 )
 
 S3 = (
-    "Table 2 gives the test results. The leakage diagnostic A reaches AP 0.9962, and the Milestone 1 "
+    "Table 2 and Figure 1 give the test results. The leakage diagnostic A reaches AP 0.9962, and the Milestone 1 "
     "baseline B reproduces its protocol score almost exactly (AP 0.9553, ROC-AUC 0.9881) — which looks "
     "like a successful replication, but is not a valid one: B's score is carried by product_price. Price "
     "alone gives test AP 0.9401 as a single-column score; the two numerics together give 0.9435, the "
@@ -91,19 +90,19 @@ S3 = (
     "price field was.\n"
     "Complexity changes nothing within any arm: boosting matches logistic regression to within 0.006 AP "
     "everywhere (B 0.9550 against 0.9553; D 0.1866 against 0.1810). The signal is in the feature set, not the "
-    "algorithm — chronological evaluation does not rescue a contaminated feature set, as the rolling windows "
+    "algorithm — chronological evaluation does not rescue a contaminated feature set (RQ2), as the rolling windows "
     "confirm (B 0.9541 and 0.9519; D 0.1722 and 0.1815).\n"
-    "RQ3 is where the framings diverge. On B, ranking and calibration disagree: B-logistic is badly "
+    "RQ3 is where the framings diverge. On B, ranking and calibration disagree (Table 3, Figure 2): B-logistic is badly "
     "underconfident mid-range (slope 2.33; the bin predicting 0.13 actually converted 51% of the time, "
     "and every bin above 0.35 converted 100%), while B-GBM's probabilities are near-binary (90,715 test "
     "rows near 0.001, 9,249 near 1.000). Their low ECE values (0.011, 0.006) flatter both. On D, both models "
     "are roughly calibrated where their predictions live (ECE 0.009 and 0.011; slopes 0.88 and 1.02), so "
     "the small ranking gain from boosting (+0.006 AP) costs nothing in calibration. The conflict was an "
     "artefact of leakage, not a property of the models.\n"
-    "The label-gap sweep is uninformative on B (AP 0.9553, 0.9552, 0.9547 at 0, 7, 14 days) "
+    "The label-gap sweep (Table 4) is uninformative on B (AP 0.9553, 0.9552, 0.9547 at 0, 7, 14 days) "
     "and slightly declining on D (0.1810, 0.1792, 0.1754). A 30-day gap is infeasible under 60/20/20 "
     "splits on 91 days of logs — the validation partition empties — and a gap alone would not prove "
-    "labels had matured at train time. Limitations remain: anonymised semantics, unknown derivation "
+    "labels had matured at train time (Chapelle, 2014). Limitations remain: anonymised semantics, unknown derivation "
     "times, the 30-day window, possible user/product repetition, and no validity beyond the 2020 log. "
     "The price finding concerns the file as released, not real-world price availability."
 )
@@ -134,6 +133,7 @@ SECTIONS = [
 
 body_words = sum(len(s.split()) for _, s in SECTIONS)
 print(f"Body words: {body_words} (target 800-1200)")
+assert 800 <= body_words <= 1200, f"Body words {body_words} outside 800-1200"
 for title, s in SECTIONS:
     print(f"  {title[:40]}: {len(s.split())} words")
 
@@ -157,12 +157,6 @@ p = doc.add_paragraph()
 p.alignment = WD_ALIGN_PARAGRAPH.CENTER
 r = p.add_run("Repository: " + REPO)
 r.font.size = Pt(10)
-p = doc.add_paragraph()
-p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-r = p.add_run(f"Body: {body_words} words (excluding tables, figures and references). "
-              "Building on the approved Milestone 1 protocol (Week 10, scored 100/100).")
-r.font.size = Pt(10)
-r.italic = True
 
 
 def add_table(headers, rows, caption):
@@ -299,7 +293,7 @@ add_table(
          "500k uniform sample (seed 530) from 15,995,634 scanned rows; chronological 60/20/20 splits; "
          "feature-availability matrix; sentinel/missingness audit incl. the product_price audit; "
          "21 duplicates, 0 invalid timestamps"],
-        ["2. Model Implementation & Evaluation (30)", "§2, Table 2, Figure 1",
+        ["2. Model Implementation & Evaluation (30)", "§2, Table 2",
          "Arms A–E plus GBM on identical splits; defensible validation (selection on validation, test "
          "once); AP / ROC-AUC / log loss / Brier; constant comparator; leakage controls (A diagnostic, D correction)"],
         ["3. Preliminary Findings & Critical Interpretation (25)", "§3, Tables 2/3/4, Figures 1–3",
@@ -334,11 +328,6 @@ refs = [
     "Kaufman, S., Rosset, S., & Perlich, C. (2011). Leakage in data mining: Formulation, detection, and "
     "avoidance. In Proceedings of the 17th ACM SIGKDD International Conference on Knowledge Discovery and "
     "Data Mining (pp. 556–563). Association for Computing Machinery. https://doi.org/10.1145/2020408.2020496",
-    "McMahan, H. B., Holt, G., Sculley, D., Young, M., Ebner, D., Grady, J., Nie, L., Phillips, T., Davydov, E., "
-    "Golovin, D., Chikkerur, S., Liu, D., Wattenberg, M., Hrafnkelsson, A. M., Boulos, T., & Kubica, J. (2013). "
-    "Ad click prediction: A view from the trenches. In Proceedings of the 19th ACM SIGKDD International "
-    "Conference on Knowledge Discovery and Data Mining (pp. 1222–1230). Association for Computing Machinery. "
-    "https://doi.org/10.1145/2487575.2488200",
     "Niculescu-Mizil, A., & Caruana, R. (2005). Predicting good probabilities with supervised learning. In "
     "Proceedings of the 22nd International Conference on Machine Learning (pp. 625–632). Association for "
     "Computing Machinery. https://doi.org/10.1145/1102351.1102430",
